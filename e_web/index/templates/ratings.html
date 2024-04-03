@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/styles.css" %}">
+    <title>Easy Code | Отзывы</title>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul class="menu">
+            <a href="/">
+                <img src="{% static 'images/logo/logo.png' %}" alt="" width="25" height="25">
+            </a>
+
+            <li class="menu-item"><a href="/">Курсы</a></li>
+            <li class="menu-item">
+                <a href="#">Категории</a>
+                <ul class="submenu">
+                    <li><a href="programming">Программирование</a></li> <br>
+                    <li><a href="layouting">Верстка</a></li>
+                </ul>
+            </li>
+            <li class="menu-item"><a href="ratings">Отзывы</a></li>
+            <li class="menu-item"><a href="platform">О платформе</a></li>
+            <li class="menu-item"><a href="authors">Авторам</a></li>
+        </ul>
+
+        <div class="user-options">
+            {% if user.is_authenticated %}
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Выйти</button>
+            </form>
+            {% else %}
+                <a href="/accounts/login/">Вход</a>
+                <a href="register">Регистрация</a>
+            {% endif %}
+        </div>
+    </nav>
+    <hr> <!-- Конец навигационного бара -->
+    <h1>Отзывы</h1>
+    <div class="review_comment">
+        <img src="{% static 'images/user_profile_photo/User3.jpg' %}" alt="Александр Авдошкин">
+        <h3>Александр Авдошкин</h3>
+        <p>Курс HTML</p>
+        <p>Если бы не координаторы, выполнил бы всё ещё в заход (в смысле каждый день по несколько пунктов в доме). Изучаю с нуля, абс понятия очень ориентированы на новичков. Спасибо вам большое!</p>
+    </div>
+    <div class="review_comment">
+        <img src="{% static 'images/user_profile_photo/User2.jpg' %}" alt="Сергей Тюрин">
+        <h3>Сергей Тюрин</h3>
+        <p>Курс JavaScript</p>
+        <p>Очень всё доступно даже для полного профана вроде меня. Эта неделя на JS сложилась в мой мозговой шум, складно как недосмотщий пазл. Всем желаю пунк на эту смрадную.</p>
+    </div>
+    <div class="review_comment">
+        <img src="{% static 'images/user_profile_photo/User1.png' %}" alt="Сергей Тюрин">
+        <h3>Элина Клейман</h3>
+        <p>Курс JavaScript</p>
+        <p>Для меня это первый курс для новичка. Понравилось тем, что эта информация структурирована и легко усваивается. Спасибо!</p>
+    </div>
+    <div class="review_comment">
+        <img src="{% static 'images/user_profile_photo/User4.png' %}" alt="Денис">
+        <h3>Денис</h3>
+        <p>Курс TypeScript</p>
+        <p>Большое количество полезной практики и интересная последовательная теория</p>
+    </div>
+    <div class="review_comment">
+        <img src="{% static 'images/user_profile_photo/User5.png' %}" alt="Вратарь по имени Куртуа">
+        <h3>Вратарь по имени Куртуа</h3>
+        <p>Курс Java</p>
+        <p>Очень крутой сайт. Здесь присутствуют почти все языки программирования! <br>Я бы переплатил огромные деньги за обучение если бы не этот сайт!<br> Спасибо разработчикам желаю им чтобы их сайт и дальше развивался.</p>
+    </div>
+    <div class="review_comment">
+        <img src="{% static 'images/user_profile_photo/User6.png' %}" alt="Артем">
+        <h3>Артем</h3>
+        <p>Курс JavaScript</p>
+        <p>Очень приятна платформа. Удобная и легко усваемая подача материала с мгновенной практикой!!! <br>Жалею, что не приобрел полные курсы Фронтенд разработки у Вас. Так держать! Развития и удачи!))</p>
+    </div> 
+    <div class="review_comment">
+        <img src="{% static 'images/user_profile_photo/User7.jpg' %}" alt="Наталья">
+        <h3>Наталья</h3>
+        <p>Курс HTML</p>
+        <p>Очень подробное знакомство и объяснение синтаксиса языка. Хотелось бы больше заданий на каждое занятие.</p>
+    </div> 
+    <div class="review_comment">
+        <img src="{% static 'images/user_profile_photo/User8.png' %}" alt="Игорь Щербаков">
+        <h3>Игорь Щербаков</h3>
+        <p>Курс Python</p>
+        <p>Отличный курс ничего не сказать, но до определённого момента (например в языке python после 40 задания), после которого идёт неразбириха, я так и не прошёл ни один курс до конца из-за этого. <br>И даже после того как я изучал язык самостоятельно, все ещё не могу пройти задания на которых застрял</p>
+    </div> 
+    <div class="review_comment">
+        <img src="{% static 'images/user_profile_photo/User9.jpg' %}" alt="Ефим">
+        <h3>Ефим</h3>
+        <p>Курс HTML</p>
+        <p>Очень доступно, даже для совсем не знающего, обучение через практику самый быстрый способ научиться.</p>
+    </div> 
+    <div class="review_comment">
+        <img src="{% static 'images/user_profile_photo/User10.jpg' %}" alt="Dmitry">
+        <h3>Dmitry</h3>
+        <p>Курс CSS</p>
+        <p>Отличный ресурс для начального обучения!<br> Кратко, но информативно для того, чтобы понять основы и определить для себя дальнейший путь развития в it разработке!<br> Спасибо!</p>
+    </div> 
+    <div class="review_comment">
+        <img src="{% static 'images/user_profile_photo/User11.jpg' %}" alt="Eldorado">
+        <h3>Eldorado</h3>
+        <p>Курс CSS</p>
+        <p>Хороший и полезный сайт для тех кто хочет попробовать программирование, но еще не определился что хочет быть программистом.<br> А также для тех кто ищет свои путь в программировании. И для начинающих программистов. Хотелось бы побольше практики, но учитывая что это бесплатно, все вполне устраивает.</p>
+    </div> 
+    <div class="review_comment">
+        <img src="{% static 'images/user_profile_photo/User12.jpg' %}" alt="Элиях Клейман">
+        <h3>Элиях Клейман</h3>
+        <p>Курс C#</p>
+        <p>Для меня это первый курс для новичка. Понравилось тем, что вся информация структурирована и дана по мере изучения материала в иерархичном порядке, что значительно повышает и желание к обучению</p>
+    </div> 
+    <!-- Инфо понель -->
+    <footer>
+        <div class="footer-column">
+            <h3>О нас</h3> <br>
+            <a>+ 998 (90) 960 20 62</a>
+            <a>asilov.sardorbek@mail.ru</a>
+            <a href="condition">Условия использования</a>
+            <a href="politics">Политика конфиденциальности</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Курсы</h3> <br>
+            <ul>
+                <li>Java</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>PHP</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Курсы</h3><br>
+            <ul>
+                <li>C#</li>
+                <li>C</li>
+                <li>Ruby</li>
+                <li>TypeScript</li>
+                <li>Racket</li>
+                <li>Go</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Сообщество</h3> <br>
+            <a href="platform">О платформе</a>
+            <a href="ratings">Отзывы</a>
+            <a href="authors">Авторам</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Направление обучения</h3><br>
+            <a href="programming">Программирование</a>
+            <a href="layouting">Верстка</a>
+        </div>
+    </footer>
+</body>
+</html>

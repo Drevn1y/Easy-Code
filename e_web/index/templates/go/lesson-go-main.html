@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/styles.css" %}" />
+    <title>Easy Code</title>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="menu">
+            <a href="/">
+                <img src="{% static 'images/logo/logo.png' %}" alt="" width="25" height="25">
+            </a>
+
+            <li class="menu-item"><a href="/">Курсы</a></li>
+            <li class="menu-item">
+                <a href="#">Категории</a>
+                <ul class="submenu">
+                    <li><a href="programming">Программирование</a></li> <br>
+                    <li><a href="layouting">Верстка</a></li>
+                </ul>
+            </li>
+            <li class="menu-item"><a href="ratings">Отзывы</a></li>
+            <li class="menu-item"><a href="platform">О платформе</a></li>
+            <li class="menu-item"><a href="authors">Авторам</a></li>
+        </ul>
+
+        <div class="user-options">
+            {% if user.is_authenticated %}
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Выйти</button>
+            </form>
+            {% else %}
+                <a href="/accounts/login/">Вход</a>
+                <a href="register">Регистрация</a>
+            {% endif %}
+        </div>
+    </nav>
+    <hr> <!-- Конец навигационcss-ного бар
+    <!-- Main C -->
+    <!-- Главная страница дизайн -->
+    <div class="container">
+        <h1 class="main-lesson-c">Уроки Go для начинающих</h1>
+        <p>Go — язык общего назначения с широкими возможностями и понятным синтаксисом. <br> 
+            Мультиплатформенный, обладает надежной, хорошо документированной стандартной <br>
+            библиотекой и ориентирован на удобные подходы к самой разработке
+        </p>
+        <br>
+        <a href="https://code-basics.com/ru/languages/go/lessons/hello-world" class="cta-button">Попробовать</a> <br><br>
+    </div> <br>
+    <!-- Уроки -->
+    <h2 class="c-h2">Основы TypeScript</h2>
+    <div class="c-row">
+        <ul class="c-ul">
+            <li class="c-li"><a class="c-a" href="https://code-basics.com/ru/languages/go/lessons/hello-world">1. Введение</a></li>
+            <li class="c-li"><a class="c-a" href="https://code-basics.com/ru/languages/go/lessons/variables">2. Переменные</a></li>
+            <li class="c-li"><a class="c-a" href="https://code-basics.com/ru/languages/go/lessons/funcs">3. Функции</a></li>
+            <li class="c-li"><a class="c-a" href="https://code-basics.com/ru/languages/go/lessons/strings">4. Строки</a></li>
+            <li class="c-li"><a class="c-a" href="https://code-basics.com/ru/languages/go/lessons/if-else">5. Условные конструкции</a></li>
+            <li class="c-li"><a class="c-a" href="https://code-basics.com/ru/languages/go/lessons/structs">6. Структуры</a></li>
+        </ul>
+    </div>
+
+    <!-- Инфо понель -->
+    <footer>
+        <div class="footer-column">
+            <h3>О нас</h3> <br>
+            <a>+ 998 (90) 960 20 62</a>
+            <a>asilov.sardorbek@mail.ru</a>
+            <a href="condition">Условия использования</a>
+            <a href="politics">Политика конфиденциальности</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Курсы</h3> <br>
+            <ul>
+                <li>Java</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>PHP</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Курсы</h3><br>
+            <ul>
+                <li>C#</li>
+                <li>C</li>
+                <li>Ruby</li>
+                <li>TypeScript</li>
+                <li>Racket</li>
+                <li>Go</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Сообщество</h3> <br>
+            <a href="platform">О платформе</a>
+            <a href="ratings">Отзывы</a>
+            <a href="authors">Авторам</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Направление обучения</h3><br>
+            <a href="programming">Программирование</a>
+            <a href="layouting">Верстка</a>
+        </div>
+    </footer>
+    
+</body>
+</html>

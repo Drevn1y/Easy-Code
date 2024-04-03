@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/styles.css" %}" />
+    <title>Easy Code</title>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="menu">
+            <a href="/">
+                <img src="{% static 'images/logo/logo.png' %}" alt="" width="25" height="25">
+            </a>
+            
+            <li class="menu-item"><a href="/">Курсы</a></li>
+            <li class="menu-item">
+                <a href="#">Категории</a>
+                <ul class="submenu">
+                    <li><a href="programming">Программирование</a></li> <br>
+                    <li><a href="layouting">Верстка</a></li>
+                </ul>
+            </li>
+            <li class="menu-item"><a href="ratings">Отзывы</a></li>
+            <li class="menu-item"><a href="platform">О платформе</a></li>
+            <li class="menu-item"><a href="authors">Авторам</a></li>
+        </ul>
+        
+        <div class="user-options">
+            {% if user.is_authenticated %}
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Выйти</button>
+            </form>
+            {% else %}
+                <a href="/accounts/login/">Вход</a>
+                <a href="register">Регистрация</a>
+            {% endif %}
+        </div>
+
+    </nav>
+    <hr> <!-- Конец навигационного бара -->
+
+
+    <!-- Главная страница дизайн -->
+    <div class="container">
+        <h4>Бесплатные курсы программирования</h4>
+        <p>Самый быстрый способ попробовать программирование прямо в браузере. Бесплатные курсы с тренажером. Практика после каждого урока</p>
+        <a href="#startN" class="cta-button">Попробовать</a> 
+        <br>
+        <br>
+        <img src="{% static "images/main_code_try/main_photo.png" %}" alt="" width="800" height="356">
+    </div>
+    <br>
+    <br>
+    <!-- Категория -->
+    <div class="navbar_category">
+        <a id="startN" class="nav-button_category selected">Курсы</a>
+        <a href="programming" class="nav-button_category ">Программирование</a>
+        <a href="layouting" class="nav-button_category">Верстка</a>
+    </div>
+
+    <!-- Курсы -->
+    <div class="container_courses">
+
+        <div class="courses_tile java">
+            <a href="java_main"><img src="{% static "images/courses/Java_1.png" %}" alt="Java"></a>
+        </div>
+
+        <div class="courses_tile javascript">
+            <a href="javascript_main"><img src="{% static "images/courses/JavaScript_1.png" %}" alt="JavaScript"></a>
+        </div> 
+
+        <div class="courses_tile python">
+            <a href="python_main"><img src="{% static "images/courses/Python_1.png" %}" alt="Python"></a>
+        </div>
+            
+        <div class="courses_tile html">
+            <a href="html_main"><img src="{% static 'images/courses/HTML_1.png' %}" alt="HTML"></a>
+        </div>
+            
+        <div class="courses_tile css">
+            <a href="css_s_main"><img src="{% static 'images/courses/CSS_1.png' %}" alt="CSS"></a>
+        </div>
+        
+        <div class="courses_tile php">
+            <a href="php_main"><img src="{% static 'images/courses/PHP_1.png' %}" alt="PHP"></a>
+        </div>
+        
+        <div class="courses_tile c_sharp">
+            <a href="c_sharp_main"><img src="{% static 'images/courses/C_sharp_1.png' %}" alt="C#"></a>
+        </div>
+
+        <div class="courses_tile c">
+            <a href="c_main"><img src="{% static 'images/courses/C_1.png' %}" alt="C"></a>
+        </div>
+        
+        <div class="courses_tile Ruby">
+            <a href="ruby_main"><img src="{% static 'images/courses/Ruby_1.png' %}" alt="Ruby"></a>
+        </div>
+
+        <div class="courses_tile TypeScript">
+            <a href="typescript_main"><img src="{% static 'images/courses/TypeScript_1.png' %}" alt="TypeScript"></a>
+        </div>
+        <div class="courses_tile Racket">
+            <a href="racket_main"><img src="{% static 'images/courses/Racket_1.png' %}" alt="Racket"></a>
+        </div>
+        <div class="courses_tile Go">
+            <a href="go_main"><img src="{% static 'images/courses/Go_1.png' %}" alt="Go"></a>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <!-- Отзывы -->
+    <h1>Отзывы</h1>
+    <div class="review_comment">
+        <img src="{% static 'images/user_profile_photo/User3.jpg' %}" alt="Александр Авдошкин">
+        <h3>Александр Авдошкин</h3>
+        <p>Курс HTML</p>
+        <p>"Если бы не координаторы, выполнил бы всё ещё в заход (в смысле каждый день по несколько пунктов в доме). Изучаю с нуля, абс понятия очень ориентированы на новичков. Спасибо вам большое!"</p>
+    </div>
+    <div class="review_comment">
+        <img src="{% static 'images/user_profile_photo/User2.jpg' %}" alt="Сергей Тюрин">
+        <h3>Сергей Тюрин</h3>
+        <p>Курс JavaScript</p>
+        <p>"Очень всё доступно даже для полного профана вроде меня. Эта неделя на JS сложилась в мой мозговой шум, складно как недосмотщий пазл. Всем желаю пунк на эту смрадную."</p>
+    </div>
+    <div class="review_comment">
+        <img src="{% static 'images/user_profile_photo/User1.png' %}" alt="Сергей Тюрин">
+        <h3>Элина Клейман</h3>
+        <p>Курс JavaScript</p>
+        <p>"Для меня это первый курс для новичка. Понравилось тем, что эта информация структурирована и легко усваивается. Спасибо!"</p>
+    </div>
+    <br>
+    <br>
+    <!-- Ответы на Вопросы -->
+    <h1>Вопросы и Ответы</h1>
+    <div class="qa-section__rate">
+        <h3>Что такое Easy Code?</h3>
+        <p>Это полностью бесплатная платформа для изучения основ программирования с нуля. Easy Code был создан разработчиками и сообществом Хекслет для того, чтобы любой желающий мог попробовать себя в программировании и заложить правильный фундамент для новой профессии, основанный не на запоминании специфики, а на понимании системы в целом.</p>
+    </div>
+    <div class="qa-section__rate">
+        <h3>А если что-то не получается?</h3>
+        <p>Специалисты и учащиеся у нас есть раздел «Обсуждения». Здесь можно задать интересующий вас вопрос или помочь ответить на вопрос другого пользователя. Обсуждения доступны для всех зарегистрированных пользователей.</p>
+    </div>
+    <div class="qa-section__rate">
+        <h3>Чему здесь можно научиться?</h3>
+        <p>Вы можете познакомиться с основами языков JavaScript, PHP, Java, Python, Ruby, Go, C# и другими. Также на Code Basics доступны курсы по HTML и CSS.</p>
+    </div>
+    <div class="qa-section__rate">
+        <h3>Как начать обучение?</h3>
+        <p>Достаточно просто зарегистрироваться. Регистрация на платформе бесплатная, после регистрации вы получите доступ ко всем курсам Code Basics. Выбирайте любой – и проходите.</p>
+    </div>
+    <!-- Форма регистрации -->
+    <div class="registration-form_main_under">
+        <h1>Зарегистрируйтесь и начните учиться прямо сейчас</h1>
+        <form>
+            <input type="text" class="form-input_main_under" placeholder="Имя"> <br>
+            <input type="email" class="form-input_main_under" placeholder="Email"> <br>
+            <input type="password" class="form-input_main_under" placeholder="Пароль"> <br>
+            <button type="submit" class="form-button_main_under">Создать аккаунт</button>
+        </form>
+    </div>
+
+    <!-- Инфо понель -->
+    <footer>
+        <div class="footer-column">
+            <h3>О нас</h3> <br>
+            <a>+ 998 (90) 960 20 62</a>
+            <a>asilov.sardorbek@mail.ru</a>
+            <a href="condition">Условия использования</a>
+            <a href="politics">Политика конфиденциальности</a>
+        </div>
+        
+        <div class="footer-column">
+            <h3>Курсы</h3> <br>
+            <ul>
+                <li>Java</li> 
+                <li>JavaScript</li> 
+                <li>Python</li> 
+                <li>HTML</li> 
+                <li>CSS</li> 
+                <li>PHP</li> 
+            </ul>
+        </div>
+    
+        <div class="footer-column">
+            <h3>Курсы</h3><br>
+            <ul>
+                <li>C#</li>
+                <li>C</li>
+                <li>Ruby</li>
+                <li>TypeScript</li>
+                <li>Racket</li>
+                <li>Go</li>
+            </ul>
+        </div>
+    
+        <div class="footer-column">
+            <h3>Сообщество</h3> <br>
+            <a href="platform">О платформе</a>
+            <a href="ratings">Отзывы</a>
+            <a href="authors">Авторам</a>
+        </div>
+    
+        <div class="footer-column">
+            <h3>Направление обучения</h3><br>
+            <a href="programming">Программирование</a>
+            <a href="layouting">Верстка</a>
+        </div>
+    </footer>
+    
+</body>
+</html>
+
+
+
+

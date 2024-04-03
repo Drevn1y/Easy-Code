@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Категория | Программирование</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' href='{% static "css/styles.css" %}'>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="menu">
+            <a href="/">
+                <img src="{% static 'images/logo/logo.png' %}" alt="" width="25" height="25">
+            </a>
+
+            <li class="menu-item"><a href="/">Курсы</a></li>
+            <li class="menu-item">
+                <a href="#">Категории</a>
+                <ul class="submenu">
+                    <li><a href="programming">Программирование</a></li> <br>
+                    <li><a href="layouting">Верстка</a></li>
+                </ul>
+            </li>
+            <li class="menu-item"><a href="ratings">Отзывы</a></li>
+            <li class="menu-item"><a href="platform">О платформе</a></li>
+            <li class="menu-item"><a href="authors">Авторам</a></li>
+        </ul>
+
+        <div class="user-options">
+            {% if user.is_authenticated %}
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Выйти</button>
+            </form>
+            {% else %}
+                <a href="/accounts/login/">Вход</a>
+                <a href="register">Регистрация</a>
+            {% endif %}
+        </div>
+    </nav>
+    <hr> <!-- Конец навигационного бара -->
+    <!-- Категория -->
+    <div class="navbar_category">
+        <a href="/" class="nav-button_category">Курсы</a>
+        <a href="programming" class="nav-button_category selected">Программирование</a>
+        <a href="layouting" class="nav-button_category">Верстка</a>
+    </div>
+        <!-- Курсы -->
+    <div class="container_courses">
+
+        <div class="courses_tile java">
+            <a href="java_main"><img src="{% static "images/courses/Java_1.png" %}" alt="Java"></a>
+        </div>
+
+        <div class="courses_tile javascript">
+            <a href="javascript_main"><img src="{% static "images/courses/JavaScript_1.png" %}" alt="JavaScript"></a>
+        </div>
+
+        <div class="courses_tile python">
+            <a href="python_main"><img src="{% static "images/courses/Python_1.png" %}" alt="Python"></a>
+        </div>
+
+        <div class="courses_tile php">
+            <a href="php_main"><img src="{% static 'images/courses/PHP_1.png' %}" alt="PHP"></a>
+        </div>
+
+        <div class="courses_tile c_sharp">
+            <a href="c_sharp_main"><img src="{% static 'images/courses/C_sharp_1.png' %}" alt="C#"></a>
+        </div>
+
+        <div class="courses_tile c">
+            <a href="c_main"><img src="{% static 'images/courses/C_1.png' %}" alt="C"></a>
+        </div>
+
+        <div class="courses_tile Ruby">
+            <a href="ruby_main"><img src="{% static 'images/courses/Ruby_1.png' %}" alt="Ruby"></a>
+        </div>
+
+        <div class="courses_tile TypeScript">
+            <a href="typescript_main"><img src="{% static 'images/courses/TypeScript_1.png' %}" alt="TypeScript"></a>
+        </div>
+        <div class="courses_tile Racket">
+            <a href="racket_main"><img src="{% static 'images/courses/Racket_1.png' %}" alt="Racket"></a>
+        </div>
+        <div class="courses_tile Go">
+            <a href="go_main"><img src="{% static 'images/courses/Go_1.png' %}" alt="Go"></a>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <!-- Инфо понель -->
+        <footer>
+        <div class="footer-column">
+            <h3>О нас</h3> <br>
+            <a>+ 998 (90) 960 20 62</a>
+            <a>asilov.sardorbek@mail.ru</a>
+            <a href="condition">Условия использования</a>
+            <a href="politics">Политика конфиденциальности</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Курсы</h3> <br>
+            <ul>
+                <li>Java</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>PHP</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Курсы</h3><br>
+            <ul>
+                <li>C#</li>
+                <li>C</li>
+                <li>Ruby</li>
+                <li>TypeScript</li>
+                <li>Racket</li>
+                <li>Go</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Сообщество</h3> <br>
+            <a href="platform">О платформе</a>
+            <a href="ratings">Отзывы</a>
+            <a href="authors">Авторам</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Направление обучения</h3><br>
+            <a href="programming">Программирование</a>
+            <a href="layouting">Верстка</a>
+        </div>
+    </footer>
+    </body>
+</html>

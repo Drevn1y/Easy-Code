@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/styles.css" %}" />
+    <title>Easy Code</title>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="menu">
+            <a href="/">
+                <img src="{% static 'images/logo/logo.png' %}" alt="" width="25" height="25">
+            </a>
+
+            <li class="menu-item"><a href="/">Курсы</a></li>
+            <li class="menu-item">
+                <a href="#">Категории</a>
+                <ul class="submenu">
+                    <li><a href="programming">Программирование</a></li> <br>
+                    <li><a href="layouting">Верстка</a></li>
+                </ul>
+            </li>
+            <li class="menu-item"><a href="ratings">Отзывы</a></li>
+            <li class="menu-item"><a href="platform">О платформе</a></li>
+            <li class="menu-item"><a href="authors">Авторам</a></li>
+        </ul>
+
+        <div class="user-options">
+            {% if user.is_authenticated %}
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Выйти</button>
+            </form>
+            {% else %}
+                <a href="/accounts/login/">Вход</a>
+                <a href="register">Регистрация</a>
+            {% endif %}
+        </div>
+    </nav>
+    <hr> 
+    <!-- Конец навигационного бара -->
+    <!-- Видео -->
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/wKkQzmD2drY?rel=0" frameborder="0" allowfullscreen></iframe>
+    </div>    
+    <!-- Конец Видео -->
+
+    <!-- Описание урока-->
+    <hr>
+    <h1 class="lesson-text-info">Информация про PHP</h1>
+    <p  class="lesson-text-info">
+        Разработка проектов на PHP требует наличие сервера. Сервер может быть двух видов: <br>
+
+        📍удаленный сервер (хостинг); <br>
+        📍локальный сервер.
+        </p><hr>
+    <!-- Описание урока конец-->
+
+    <!-- Уроки -->
+    <h2 class="c-h2">Основы PHP</h2> 
+    <h2 class="c-h2"> <a href="https://www.programiz.com/php/online-compiler/#google_vignette">Компилятор</a> </h2>
+    <div class="c-row">
+        <ul class="c-ul">
+            <li class="c-li"><a class="c-a" href="php-lesson-1">1. Локальный сервер. <br>
+                                                                Вывод информации <br>
+                                                                и комментарии</a></li>
+            <li class="c-li"><a class="c-a" href="php-lesson-2">2. Переменые</a></li>
+            <li class="c-li"><a class="c-a" href="php-lesson-3">3. Математические действия</a></li>
+            <li class="c-li"><a class="c-a" href="php-lesson-4">4. Строковые операции</a></li>
+            <li class="c-li"><a class="c-a" href="php-lesson-5">5. if else</a></li>
+            <li class="c-li"><a class="c-a" href="php-lesson-6">6. Switch case</a></li>
+            <li class="c-li"><a class="c-a" href="php-lesson-7">7. Масивы</a></li>
+            <li class="c-li"><a class="c-a" href="php-lesson-8">8. Циклы</a></li>
+            <li class="c-li"><a class="c-a" href="php-lesson-9">9. Функции</a></li>
+        </ul>
+    </div>
+
+    <!-- Инфо понель -->
+    <footer>
+        <div class="footer-column">
+            <h3>О нас</h3> <br>
+            <a>+ 998 (90) 960 20 62</a>
+            <a>asilov.sardorbek@mail.ru</a>
+            <a href="condition">Условия использования</a>
+            <a href="politics">Политика конфиденциальности</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Курсы</h3> <br>
+            <ul>
+                <li>Java</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>PHP</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Курсы</h3><br>
+            <ul>
+                <li>C#</li>
+                <li>C</li>
+                <li>Ruby</li>
+                <li>TypeScript</li>
+                <li>Racket</li>
+                <li>Go</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Сообщество</h3> <br>
+            <a href="platform">О платформе</a>
+            <a href="ratings">Отзывы</a>
+            <a href="authors">Авторам</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Направление обучения</h3><br>
+            <a href="programming">Программирование</a>
+            <a href="layouting">Верстка</a>
+        </div>
+    </footer>
+    
+</body>
+</html>
+

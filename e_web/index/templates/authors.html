@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "css/styles.css" %}" />
+    <title>Easy Code | Авторам</title>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="menu">
+            <a href="/">
+                <img src="{% static 'images/logo/logo.png' %}" alt="" width="25" height="25">
+            </a>
+
+            <li class="menu-item"><a href="/">Курсы</a></li>
+            <li class="menu-item">
+                <a href="#">Категории</a>
+                <ul class="submenu">
+                    <li><a href="programming">Программирование</a></li> <br>
+                    <li><a href="layouting">Верстка</a></li>
+                </ul>
+            </li>
+            <li class="menu-item"><a href="ratings">Отзывы</a></li>
+            <li class="menu-item"><a href="platform">О платформе</a></li>
+            <li class="menu-item"><a href="authors">Авторам</a></li>
+        </ul>
+
+        <div class="user-options">
+            {% if user.is_authenticated %}
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Выйти</button>
+            </form>
+            {% else %}
+                <a href="/accounts/login/">Вход</a>
+                <a href="register">Регистрация</a>
+            {% endif %}
+        </div>
+    </nav>
+    <hr> <!-- Конец навигационного бара -->
+    <!-- Автору -->
+    <h1 class="platform">Автору</h1>
+    <br> <hr>
+    <h1 class="platform">Чем могут помочь наши рекомендации:    </h1>
+    <ul>
+        <li>Структурировать свои знания</li> <br>
+        <li>Выделять смысловые блоки в тексте</li> <br>
+        <li>Определять уровень сложности материала в зависимости от целевой аудитории </li> <br>
+        <li>Объяснять сложные вещи простым языком</li> <br>
+        <li>Оформлять, редактировать и корректировать текст</li> <br>
+    </ul><hr>
+    <h1 class="platform">Список рекомендаций</h1> <hr>
+    <h2 class="platform">Перед началом работы над текстом</h2>
+    <ul>
+        <li>Мы ориентируемся на инфостиль, о котором можно почитать здесь</li> <br>
+        <li>Пройти текстовый курс «Как писать классные тексты»</li> <br>
+        <li>Пройти текстовый курс «Как проектировать классные уроки»</li> <br>
+    </ul> <hr>
+    <h2 class="platform">Как проверить готовый текст</h2> <hr>
+    <h3 class="platform">1. Оригинальность текста</h3>
+    <p class="lil">В образовательном контенте ценятся тексты, в которых авторы доносят знания своими словами. Вы можете<br>
+    опираться на сторонние источники, но не стоит копировать из них целыми фрагментами. Будет здорово, если<br>
+    оригинальность вашего текста составит от 70% до 100%</p> <hr>
+    <h3 class="platform">2. Соответствие информационному стилю</h3>
+    <ul>
+        <li>Text.ru— проверяет медленно, но без ограничений</li> <br>
+        <li>Content Watch— проверяет намного быстрее, но до 10000 символов и 3 раза в день</li> <br>
+    </ul><hr>
+    <h3 class="platform">3. Воспользоваться нашим чек-листом</h3>
+    <ul>
+        <li>Урок делится на смысловые блоки с подзаголовками</li> <br>
+        <li>Подзаголовки сформулированы так, что отражают подтемы урока</li> <br>
+        <li>Соблюдается правило «Один абзац — это одна мысль»</li> <br>
+        <li>Тема урока раскрыта последовательно:</li> <br>
+        <li>«От знакомого к незнакомому»</li> <br>
+        <li>«От простого к сложному»</li> <br>
+        <li>«От общего к частному»</li> <br>
+        <li>Введение объясняет, как устроен урок, какие темы затронуты и почему эти темы важны</li> <br>
+        <li>Заключение подводит итоги и перечисляет ключевые тезисы</li> <br>
+    </ul><hr>
+    <h3 class="platform">4. Структура абзацев и предложений</h3>
+    <ul>
+        <li>Нет монотонных отрывков с одинаковой длиной предложений</li> <br>
+        <li>Нет абзацев со скрытыми запутанными мыслями («Стоит упомянуть», «обратите внимание»)</li> <br>
+        <li>Нет предложений со скрытым действием (отглагольные существительные)</li> <br>
+        <li>Нет предложений со скрытым подлежащим (пассивные, модальные и возвратные глаголы)</li> <br>
+    </ul><hr>
+    <!-- Инфо понель -->
+    <footer>
+        <div class="footer-column">
+            <h3>О нас</h3> <br>
+            <a>+ 998 (90) 960 20 62</a>
+            <a>asilov.sardorbek@mail.ru</a>
+            <a href="condition">Условия использования</a>
+            <a href="politics">Политика конфиденциальности</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Курсы</h3> <br>
+            <ul>
+                <li>Java</li>
+                <li>JavaScript</li>
+                <li>Python</li>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>PHP</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Курсы</h3><br>
+            <ul>
+                <li>C#</li>
+                <li>C</li>
+                <li>Ruby</li>
+                <li>TypeScript</li>
+                <li>Racket</li>
+                <li>Go</li>
+            </ul>
+        </div>
+
+        <div class="footer-column">
+            <h3>Сообщество</h3> <br>
+            <a href="platform">О платформе</a>
+            <a href="ratings">Отзывы</a>
+            <a href="authors">Авторам</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>Направление обучения</h3><br>
+            <a href="programming">Программирование</a>
+            <a href="layouting">Верстка</a>
+        </div>
+    </footer>
+</body>
+</html>
